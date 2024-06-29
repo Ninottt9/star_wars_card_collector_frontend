@@ -3,7 +3,7 @@
 import axios from 'axios';
 import authService from './authService';
 
-const API_BASE_URL = 'http://localhost:8081'; // Adjust accordingly
+const API_BASE_URL = 'http://localhost:8081/api'; // Adjust accordingly
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -15,8 +15,8 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const user = authService.getCurrentUser();
-    if (user && user.token) {
-      config.headers['Authorization'] = 'Bearer ' + user.token;
+    if (user) {
+      config.headers['Authorization'] = 'Bearer ' + user;
     }
     return config;
   },

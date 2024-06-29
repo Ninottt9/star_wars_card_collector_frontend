@@ -1,13 +1,11 @@
-// src/components/PrivateRoute.js
-
-import { Route, Navigate } from 'react-router-dom';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component }) => {
   const { currentUser } = useContext(AuthContext);
 
-  return <>{currentUser ? <Component {...rest} /> : <Navigate to='/login' />} </>;
+  return currentUser ? <Component /> : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

@@ -3,9 +3,10 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Form from './reusable/Form';
 
 const Login = () => {
-  const [nickname, setNickname] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await login(nickname, password);
+      await login(username, password);
       navigate('/');
     } catch (error) {
       console.error(error);
@@ -21,19 +22,7 @@ const Login = () => {
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Nickname:</label>
-        <input type='text' value={nickname} onChange={(e) => setNickname(e.target.value)} />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
-      </div>
-      <button type='submit'>Login</button>
-    </form>
-  );
+  return Form({ username, password, setUsername, setPassword, handleSubmit, buttonText: 'Login' });
 };
 
 export default Login;

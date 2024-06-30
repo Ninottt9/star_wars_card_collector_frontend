@@ -15,8 +15,8 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const user = authService.getCurrentUser();
-    if (user) {
-      config.headers['Authorization'] = 'Bearer ' + user;
+    if (user && user.token) {
+      config.headers['Authorization'] = 'Bearer ' + user.token;
     }
     return config;
   },

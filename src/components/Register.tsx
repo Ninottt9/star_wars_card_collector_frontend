@@ -28,7 +28,7 @@ const Register = () => {
     setUsername,
     setPassword,
     handleSubmit,
-    buttonText: 'Register',
+    buttonText: 'Sign up',
   });
 };
 

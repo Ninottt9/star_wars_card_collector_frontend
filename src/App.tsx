@@ -11,17 +11,15 @@ import Profile from './components/Profile';
 
 const App = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/' element={<PrivateRoute component={Home}/>} />
-          <Route path='/profile' element={<PrivateRoute component={Profile}/>} />
-          {/* <Route path='*' element={<h1>Not Found</h1>} /> */}
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/' element={<PrivateRoute component={Home} />} />
+        <Route path='/profile' element={<PrivateRoute component={Profile} />} />
+        {/* <Route path='*' element={<h1>Not Found</h1>} /> */}
+      </Routes>
+    </Router>
   );
 };
 

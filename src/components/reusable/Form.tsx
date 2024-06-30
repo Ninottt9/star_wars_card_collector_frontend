@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function Form({
   username,
   password,
@@ -6,6 +8,22 @@ export default function Form({
   handleSubmit,
   buttonText,
 }) {
+  const navigate = useNavigate();
+
+  const handleRegisterClick = () => {
+    // Redirect to the registration page
+    navigate('/register');
+  };
+  const signUpButton = (
+    <button
+      type='button'
+      onClick={handleRegisterClick}
+      className='mt-2 text-blue-500 hover:underline focus:outline-none'
+    >
+      Dont have an account? Sign up
+    </button>
+  );
+
   return (
     <div className='flex items-center justify-center min-h-screen bg-gray-100'>
       <form onSubmit={handleSubmit} className='bg-white p-8 rounded-lg shadow-lg w-96'>
@@ -34,6 +52,7 @@ export default function Form({
         >
           {buttonText}
         </button>
+        {buttonText === 'Login' && signUpButton}
       </form>
     </div>
   );

@@ -12,7 +12,7 @@ const InventoryList = () => {
 
   const fetchInventories = async () => {
     try {
-      const response = await api.get('/inventories');
+      const response = await api.get('/inventory/names');
       setInventories(response.data);
     } catch (error) {
       console.error('Error fetching inventories:', error);

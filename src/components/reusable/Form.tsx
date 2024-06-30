@@ -11,7 +11,7 @@ export default function Form({
       <form onSubmit={handleSubmit} className='bg-white p-8 rounded-lg shadow-lg w-96'>
         <h2 className='text-2xl font-bold mb-6 text-center'>{buttonText}</h2>
         <div className='mb-4'>
-          <label className='block text-gray-700 font-semibold mb-2'>Nickname:</label>
+          <label className='block text-gray-700 font-semibold mb-2'>Username:</label>
           <input
             type='text'
             value={username}

@@ -4,7 +4,7 @@ import React from 'react';
 
 const Card = ({ eye_color, gender, skin_color, mass, name, birth_year, hair_color, height }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4 mb-4 w-full max-w-sm">
+    <div className="bg-white shadow-lg rounded-lg p-4 mb-4 w-56">
       <h3 className="text-lg font-bold mb-2">{name}</h3>
       <p className="text-gray-700 mb-2">Eye Color: {eye_color}</p>
       <p className="text-gray-700 mb-2">Gender: {gender}</p>
